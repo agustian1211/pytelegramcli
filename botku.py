@@ -46,7 +46,7 @@ def exec(bot, update, args):
        pi='Kau tak bisa pakai bot ini'
        update.message.reply_text(pi)
 
-updater = Updater('314762661:AAHA2a-LKZvnrFPevaR-u5X7JeidjZxotks')
+updater = Updater('TOKEN')
 
 updater.dispatcher.add_handler(CommandHandler('mulai', mulai))
 updater.dispatcher.add_handler(CommandHandler('exec', exec, pass_args=True
