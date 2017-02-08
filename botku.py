@@ -8,9 +8,9 @@ from telegram.ext import CommandHandler
 from subprocess import Popen
 
 
-def mulai(bot, update):
+def start(bot, update):
     update.message.reply_text('Welcome {}'.format(update.message.from_user.first_name))
-    update.message.reply_text('Silahkan berikan command linux = /exec dilanjutkan dengan param $host@ip $command  ')
+    update.message.reply_text('Use /exec followed by param $host@ip $command  ')
 
 def exec(bot, update, args):
     user = update.message.from_user.username
@@ -48,7 +48,7 @@ def exec(bot, update, args):
 
 updater = Updater('TOKEN')
 
-updater.dispatcher.add_handler(CommandHandler('mulai', mulai))
+updater.dispatcher.add_handler(CommandHandler('start', mulai))
 updater.dispatcher.add_handler(CommandHandler('exec', exec, pass_args=True
 ))
 
