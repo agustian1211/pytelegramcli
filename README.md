@@ -2,6 +2,7 @@
 Use python ver 3++
 
 EASY TO SETUP
+
 $ pip install python-telegram-bot
 
 Edit script :
