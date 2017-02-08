@@ -7,50 +7,10 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from subprocess import Popen
 
-h = os.popen('hostname')
-nama = h.read()
-
-p = os.popen('pwd')
-direk = p.read()
-
-l = os.popen('ls -lrt')
-isi = l.read()
-
-t = subprocess.Popen(["ls", "-lrt"], stdout=subprocess.PIPE,
-                                     stderr=subprocess.PIPE)
-lihat = t.stdout.read()
-
-df = os.popen('df -kh')
-memori = df.read()
 
 def mulai(bot, update):
     update.message.reply_text('Welcome {}'.format(update.message.from_user.first_name))
-    update.message.reply_text('Silahkan berikan command linux = /hostname, /pwd, /ls, /tail, /space ')
-
-def hostname(bot, update):
-        update.message.reply_text(
-        nama
-        )
-
-def pwd(bot, update):
-        update.message.reply_text(
-        direk
-        )
-
-def ls(bot, update):
-        update.message.reply_text(
-        isi
-        )
-
-def tail(bot, update):
-        update.message.reply_text(
-        lihat
-        )
-
-def space(bot, update):
-        update.message.reply_text(
-        memori
-        )
+    update.message.reply_text('Silahkan berikan command linux = /exec dilanjutkan dengan param $host@ip $command  ')
 
 def exec(bot, update, args):
     user = update.message.from_user.username
@@ -89,11 +49,6 @@ def exec(bot, update, args):
 updater = Updater('314762661:AAHA2a-LKZvnrFPevaR-u5X7JeidjZxotks')
 
 updater.dispatcher.add_handler(CommandHandler('mulai', mulai))
-updater.dispatcher.add_handler(CommandHandler('hostname', hostname))
-updater.dispatcher.add_handler(CommandHandler('pwd', pwd))
-updater.dispatcher.add_handler(CommandHandler('ls', ls))
-updater.dispatcher.add_handler(CommandHandler('tail', tail))
-updater.dispatcher.add_handler(CommandHandler('space', space))
 updater.dispatcher.add_handler(CommandHandler('exec', exec, pass_args=True
 ))
 
