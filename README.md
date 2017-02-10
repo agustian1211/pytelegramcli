@@ -7,8 +7,11 @@ $ pip install python-telegram-bot
 
 Edit script :
 - You must have token form telegram bot and replace variable TOKEN
-- Change value userlist for username they can use the bot
-- Change value list for command exceptions
+- Change path listAccessUser.txt
+- Change path listCommandBanned.txt
+
+Create File :
+- Create file listAccessUser.txt(user who have access to use bot) and listCommandBanned.txt(command linux who can't exec)
 
 $ python botku.py
 
